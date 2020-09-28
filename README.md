@@ -22,6 +22,26 @@ else:
     print(f'{file_name} already downloaded')
 ```
 
+### **Blobs**
+```python
+try:
+  import cudf
+except:
+  import pandas as cudf
+
+cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/blobs.csv')
+```
+
+### **Dog or Horse**
+```python
+try:
+  import cudf
+except:
+  import pandas as cudf
+
+df = cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/dog_or_horse.csv')
+```
+
 ### **Iris**
 ```python
 try:
@@ -30,6 +50,27 @@ except:
   import pandas as cudf
 
 cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/iris.csv')
+```
+
+### **NYC Taxi**
+```python
+import pandas as pd
+
+# 2009 - 2016
+for year in range(2009, 2017):
+    # january - december
+    for month in range(1, 13):
+        # correct single digit months
+        if month < 10:
+            month = f'0{month}'
+        # initial df (january 2009)
+        if (year==2009) and (month=='01'):
+            df = pd.read_parquet(f'https://github.com/gumdropsteve/datasets/raw/master/nyc_taxi/yellow_tripdata_{year}-{month}.parquet')
+        # february 2009 - june 2016
+        elif (year < 2016) or (int(month) < 7):
+            # add on to existing df
+            df = pd.concat([df, pd.read_parquet(f'https://github.com/gumdropsteve/datasets/raw/master/nyc_taxi/yellow_tripdata_{year}-{month}.parquet')])
+df
 ```
 
 ### **NYC Transport**
@@ -90,4 +131,11 @@ for file in [f'cu_taxi_zones.{f}' for f in ['cpg', 'dbf', 'prj', 'shp', 'shx']]:
     if not os.path.isfile(data_dir + t_zones_sub_dir + file):
         print(f'Downloading {base_url + t_zones_sub_dir + file} to {data_dir + t_zones_sub_dir + file}')
         urllib.request.urlretrieve(base_url + t_zones_sub_dir + file, data_dir + t_zones_sub_dir + file)
+```
+
+### **Yellow Cab Averages**
+```python
+import pandas as pd
+
+pd.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/yellow_cab_ymd_averages.csv')
 ```
