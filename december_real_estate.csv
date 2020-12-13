@@ -18,4 +18,4 @@ ds,realtor_id,closing_price,client,location,commission_rate,commission,expenses,
 12/22/2019,0,1000000,seller,san ramon,0.025,25000,,25000
 12/22/2019,2,250000,buyer,dublin,0.025,6250,,6250
 12/23/2019,0,1100000,seller,danville,0.025,27500,,27500
-12/23/2019,0,1150000",seller,san ramon,0.04,46000,50000,-4000
+12/23/2019,0,1150000,seller,san ramon,0.04,46000,50000,-4000
