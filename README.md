@@ -1,6 +1,7 @@
 # datasets
 
-### **Airlines**
+## **Airlines**
+#### Python
 ```python
 import os
 from urllib.request import urlretrieve
@@ -22,7 +23,8 @@ else:
     print(f'{file_name} already downloaded')
 ```
 
-### **Blobs**
+## **Blobs**
+#### Python
 ```python
 try:
   import cudf
@@ -32,7 +34,14 @@ except:
 cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/blobs.csv')
 ```
 
-### **Dog or Horse**
+#### R
+```r
+link <- 'https://raw.githubusercontent.com/gumdropsteve/datasets/master/blobs.csv'
+df <- read.csv(link)
+```
+
+## **Dog or Horse**
+#### Python
 ```python
 try:
   import cudf
@@ -42,7 +51,14 @@ except:
 df = cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/dog_or_horse.csv')
 ```
 
-### **Iris**
+#### R
+```r
+link <- 'https://raw.githubusercontent.com/gumdropsteve/datasets/master/dog_or_horse.csv'
+df <- read.csv(link)
+```
+
+## **Iris**
+#### Python
 ```python
 try:
   import cudf
@@ -52,7 +68,14 @@ except:
 cudf.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/iris.csv')
 ```
 
-### **NYC Taxi**
+#### R
+```r
+link <- 'https://raw.githubusercontent.com/gumdropsteve/datasets/master/iris.csv'
+df <- read.csv(link)
+```
+
+## **NYC Taxi**
+#### Python
 ```python
 import pandas as pd
 
@@ -73,7 +96,8 @@ for year in range(2009, 2017):
 df
 ```
 
-### **NYC Transport**
+## **NYC Transport**
+#### Python
 Add this snippet to the below based on which parts of the NYC Transport dataset you want to download.
 ```python
 import os
@@ -94,7 +118,8 @@ for d in [data_dir, f'{data_dir}/{taxi_sub_dir}', f'{data_dir}/{uber_sub_dir}', 
 base_url = 'https://raw.githubusercontent.com/gumdropsteve/datasets/master/nyc_transport/'
 ```
 
-#### Green Taxi
+### Green Taxi
+#### Python
 ```python
 for file in [f'green_tripdata_{f}.csv' for f in ['2013-08', '2014-01', '2015-01', '2016-01', '2017-01', '2018-01', '2019-01']]:
     if not os.path.isfile(data_dir + taxi_sub_dir + file):
@@ -102,7 +127,8 @@ for file in [f'green_tripdata_{f}.csv' for f in ['2013-08', '2014-01', '2015-01'
         urllib.request.urlretrieve(base_url + taxi_sub_dir + file, data_dir + taxi_sub_dir + file)
 ```
 
-#### Yellow Taxi
+### Yellow Taxi
+#### Python
 ```python
 for file in [f'yellow_tripdata_20{f}-01.csv' for f in ['09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]]:
     if not os.path.isfile(data_dir + taxi_sub_dir + file):
@@ -110,7 +136,8 @@ for file in [f'yellow_tripdata_20{f}-01.csv' for f in ['09', 10, 11, 12, 13, 14,
         urllib.request.urlretrieve(base_url + taxi_sub_dir + file, data_dir + taxi_sub_dir + file)
 ```
 
-#### Uber
+### Uber
+#### Python
 ```python
 # 2014
 for file in [f'uber-raw-data-{month}14.csv' for month in ['apr', 'aug', 'jul', 'jun', 'may', 'sep']]:
@@ -125,7 +152,8 @@ if not os.path.isfile(data_dir + uber_sub_dir + file):
     urllib.request.urlretrieve(base_url + uber_sub_dir + file, data_dir + uber_sub_dir + file)
 ```
 
-#### Taxi Zones (CUDA Shapefiles)
+### Taxi Zones (CUDA Shapefiles)
+#### Python
 ```python
 for file in [f'cu_taxi_zones.{f}' for f in ['cpg', 'dbf', 'prj', 'shp', 'shx']]:
     if not os.path.isfile(data_dir + t_zones_sub_dir + file):
@@ -133,9 +161,16 @@ for file in [f'cu_taxi_zones.{f}' for f in ['cpg', 'dbf', 'prj', 'shp', 'shx']]:
         urllib.request.urlretrieve(base_url + t_zones_sub_dir + file, data_dir + t_zones_sub_dir + file)
 ```
 
-### **Yellow Cab Averages**
+## **Yellow Cab Averages**
+#### Python
 ```python
 import pandas as pd
 
 pd.read_csv('https://raw.githubusercontent.com/gumdropsteve/datasets/master/yellow_cab_ymd_averages.csv')
+```
+
+#### R
+```r
+link <- 'https://raw.githubusercontent.com/gumdropsteve/datasets/master/yellow_cab_ymd_averages.csv'
+df <- read.csv(link)
 ```
