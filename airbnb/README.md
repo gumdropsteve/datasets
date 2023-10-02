@@ -14,7 +14,7 @@ Simply copy the file's URL and replace `/blob/` with `/raw/`.
 ### Collection Method
 - Data was scraped once per day at various times
   - This was done in parallel with dask.delayed
-  - You can find the scrape here: [gumdropsteve/airbnb/blob/main/01_scrape.py](https://github.com/gumdropsteve/airbnb/blob/main/01_scrape.py)
+  - You can find the scrape here: [gumdropsteve/airbnb](https://github.com/gumdropsteve/airbnb)
 - Different `search_filter`s were used on each location to maxamize the number of views of that location
   - There are 8 possible options here
     - `''` - none - just searching the location
